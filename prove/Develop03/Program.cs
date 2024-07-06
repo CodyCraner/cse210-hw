@@ -118,10 +118,7 @@ class Program
             Console.WriteLine("Press ENTER to hide more words or type QUIT to end the program.");
             userInput = Console.ReadLine();
             scripture.HideWords();
-            if (scripture.IsCompletelyHidden())
-            {
-                break;
-            }
+            
             
 
         }
