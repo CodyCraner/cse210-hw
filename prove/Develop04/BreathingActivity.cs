@@ -1,4 +1,4 @@
-class BreathingActivity
+class BreathingActivity  
 {
     private int _duration;
 
