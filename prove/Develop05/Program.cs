@@ -1,39 +1,48 @@
-using System;
-
 class Program
 {
     static void Main(string[] args)
     {
-        GoalSystem system = new GoalSystem();
+       bool play = true;
+       Console.WriteLine("What's your name?: ");
+       User user = new User(Console.ReadLine());
 
-        Console.WriteLine("Menu Options:\n   1. Create New Goal\n   2. List Goals\n   3. Save Goals\n   4. Load Goals\n   5. Record Event\n   6. Quit\nSelect any option: ");
+       do
+       {
+        Console.WriteLine($"Points: {user.GetTotalPoints()}");
+        string MENU = "\nMenu Options:\n   1. Create New Goal\n   2. List Goals\n   3. Save Goals\n   4. Load Goals\n   5. Record Event\n   6. Quit\nSelect any option: ";
+        Console.WriteLine(MENU);
         int userOption = int.Parse(Console.ReadLine());
-
-        switch(userOption)
+        switch (userOption)
         {
             case 1:
-                system.CreateNewGoal();
+                user.CreateNewGoal();
                 break;
 
             case 2:
-                Console.WriteLine("");
+                user.DisplayGoals();
                 break;
 
             case 3:
-                Console.WriteLine("");
+                user.Save();
                 break;
 
             case 4:
-                Console.WriteLine("");
+                user.Load();
                 break;
 
             case 5:
-                Console.WriteLine("");
+                user.RecordEvent();
                 break;
 
             case 6:
-                Console.WriteLine("");
+                play = false;
                 break;
+
+            default:
+                Console.WriteLine("That's not an option.");
+                break;
+
         }
+       } while (play);
     }
 }
